@@ -13,3 +13,7 @@ First Commit
 February 17, 2025
 • Added Fully Functional of a Navigation 
  - Dasboard to Admin are fully navigated
+ - Fully responsive sidebar and Employee
+ - Added Turbo.js so there's no page flickering
+ - Added a Fully interactive Sidebar ( Hamburger menu but it's Odecci Logo ) 
+ - Fully Optimized the Hamburger logo and the logo of the Company
