@@ -1,4 +1,6 @@
 import './bootstrap';
+import '../css/app.css';
+
 
 // my password toggle
 document.addEventListener("DOMContentLoaded", function () {

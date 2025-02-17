@@ -2,3 +2,10 @@ February 14, 2025 ( First Commit)
 First Commit
 • Added a Login Page 
  - resources\views\auth\login.blade.php
+ - Replicated the Login page of HRIS Odecci 
+ - Tweaks the code to make it responsive and full page
+
+• Added a Dasboard, Clients, Messages, Appointments, Projects, Settings, and Admin
+  - Added the svg accordingly
+  - Added the Color Branding ( Gradient based on Prototype)
+  
