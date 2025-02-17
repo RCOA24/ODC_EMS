@@ -4,11 +4,11 @@
 
 @section('content')
     <div class="flex">
-        <x-sidebar active="projects" />
+        <x-sidebar active="employee" />
 
         
         <div class="flex-1 p-6">
-            <h1 class="text-2xl font-semibold">Welcome to the Projects</h1>
+            <h1 class="text-2xl font-semibold">Employee Profile</h1>
             
         </div>
     </div>

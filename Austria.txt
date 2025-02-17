@@ -8,4 +8,8 @@ First Commit
 • Added a Dasboard, Clients, Messages, Appointments, Projects, Settings, and Admin
   - Added the svg accordingly
   - Added the Color Branding ( Gradient based on Prototype)
-  
+
+
+February 17, 2025
+• Added Fully Functional of a Navigation 
+ - Dasboard to Admin are fully navigated

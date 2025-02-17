@@ -19,9 +19,9 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('clients') }}" class="flex items-center gap-2 p-2 rounded-lg transition-all duration-300 {{ $active === 'clients' ? 'bg-white text-red-600' : 'hover:bg-[#18475D]' }}">
+                <a href="{{ route('employee') }}" class="flex items-center gap-2 p-2 rounded-lg transition-all duration-300 {{ $active === 'employee' ? 'bg-white text-red-600' : 'hover:bg-[#18475D]' }}">
                     <x-icon-clients class="w-5 h-5" />
-                    <span class="text-sm">Clients</span>
+                    <span class="text-sm">Employee</span>
                 </a>
             </li>
             <li>
@@ -47,11 +47,11 @@
 
     <!-- Settings & Admin -->
     <div class="mt-auto space-y-2">
-        <a href="{{ route('settings') }}" class="flex items-center gap-2 p-2 rounded-lg transition-all duration-300 hover:bg-[#18475D]">
+        <a href="{{ route('settings') }}" class="flex items-center gap-2 p-2 rounded-lg transition-all duration-300 {{ $active === 'settings' ? 'bg-white text-red-600' : 'hover:bg-[#18475D]' }}">
             <x-icon-settings class="w-5 h-5" />
             <span class="text-sm">Settings</span>
         </a>
-        <a href="{{ route('admin') }}" class="flex items-center gap-2 p-2 rounded-lg transition-all duration-300 hover:bg-[#18475D]">
+        <a href="{{ route('admin') }}" class="flex items-center gap-2 p-2 rounded-lg transition-all duration-300 {{ $active === 'admin' ? 'bg-white text-red-600' : 'hover:bg-[#18475D]' }}">
             <x-icon-admin class="w-5 h-5" />
             <span class="text-sm">Admin</span>
         </a>

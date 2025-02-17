@@ -13,9 +13,9 @@ Route::get('/dashboard', function () {
     return view('auth.dashboard');
 })->name('dashboard');
 
-Route::get('/clients', function () {
-    return view('auth.clients');
-})->name('clients');
+Route::get('/employee', function () {
+    return view('auth.employee');
+})->name('employee');
 
 Route::get('/messages', function () {
     return view('auth.messages');
