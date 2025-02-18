@@ -26,3 +26,4 @@ February 17, 2025
  - Finished the Design of the Employee Tasks
  - Half responsive (Desktop Only), mobile is still ongoing
  - Some Minor Configurations at sidebar
+ - Added the Employee Details, Picture, and SVG Icon
