@@ -46,12 +46,17 @@
                         <div style="background: linear-gradient(to right, rgb(32, 83, 117), rgb(16, 43, 60));"
                             class="text-white px-5 py-3 flex items-center">
                             <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded mr-5">
-                            <span class="font-bold text-sm w-3/5 text-center flex justify-center px-5">TASKS NAME</span>
-                            <span class="font-bold text-sm w-28 text-center flex justify-center px-5">STATUS</span>
-                            <span class="font-bold text-sm w-40 flex items-center justify-start px-5">DEADLINE</span>
+                            
+                            <!-- Task Name -->
+                            <span class="font-bold text-sm text-left flex-1 px-5">TASKS NAME</span>
+                            
+                            <!-- Adjusted Status Column -->
+                            <span class="font-bold text-sm text-center" style="width: 120px; margin-right: 90px;">STATUS</span>
 
-
+                            <!-- Deadline -->
+                            <span class="font-bold text-sm text-left px-5">DEADLINE</span>
                         </div>
+
 
                         <!-- Task List -->
                     <div class="divide-y divide-gray-300 bg-white">
@@ -68,27 +73,35 @@
                         <div class="flex items-center px-5 py-4 border border-gray-300">
                             <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded mr-5">
                             <span class="flex-1 px-5">{{ $task['name'] }}</span>
-                            <span class="w-28 flex justify-center items-center px-5 py-2">
+                            <span class="px-5 py-2 flex items-center mb-2">
 
-                                <span style="background-color: {{ $task['color'] }}; padding: 7px 20px; border-radius: 9999px;"
-                                    class="text-white text-sm font-bold text-center whitespace-nowrap">
-                                    {{ $task['priority'] }}
-                                </span>
+
+
+                                <span style="background-color: {{ $task['color'] }}; padding: 7px 20px; border-radius: 9999px; margin-right: 90px;"
+                                        class="text-white text-xs font-bold text-center whitespace-nowrap">
+                                        {{ $task['priority'] }}
+                                    </span>
+                                
                             </span>
-                            <span class="w-40 text-center">{{ $task['deadline'] }}</span>
+                            <span class="w-40 text-left px-2 flex items-start">{{ $task['deadline'] }}</span>
+
+
                         </div>
                         @endforeach
                     </div>
 
-
-                        <div class="flex gap-3 p-4 w-full bg-gray-100 border-t">
+                    <div class="flex justify-between p-4 w-full bg-gray-100 border-t">
+                        <div class="flex-1"></div> <!-- Spacer -->
+                        <div class="flex gap-3">
                             <!-- Delete Button -->
-                            <button style="background-color: rgb(236, 28, 36);" class="text-white px-5 py-2 rounded-md text-sm font-bold hover:bg-red-700 transition">
+                            <button style="background-color: rgb(236, 28, 36);" 
+                                    class="text-white px-5 py-2 rounded-md text-sm font-bold hover:bg-red-700 transition">
                                 Delete
                             </button>
-                        
+                    
                             <!-- Add Button -->
-                            <button style="background-color: rgb(16, 43, 60);" class="text-white px-5 py-2 rounded-md text-sm font-bold hover:bg-blue-800 transition">
+                            <button style="background-color: rgb(16, 43, 60);" 
+                                    class="text-white px-5 py-2 rounded-md text-sm font-bold hover:bg-blue-800 transition">
                                 Add
                             </button>
                         </div>
