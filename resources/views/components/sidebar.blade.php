@@ -5,17 +5,19 @@
 <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo"></script>
 
 <aside 
-    x-data="{
-        open: localStorage.getItem('sidebarOpen') === 'true',
-        toggle() {
-            this.open = !this.open;
-            localStorage.setItem('sidebarOpen', this.open);     
-        }
-    }"
-    x-init="$watch('open', value => localStorage.setItem('sidebarOpen', value))"    
-    :class="open ? 'w-64 md:w-64 lg:w-72 p-6' : 'w-16 p-2'"
-    class="bg-gradient-to-b from-[#102B3C] to-[#205375] h-screen fixed md:relative transform md:translate-x-0 transition-all duration-300 ease-in-out text-white flex flex-col"
+x-data="{
+    open: localStorage.getItem('sidebarOpen') === 'true',
+    toggle() {
+        this.open = !this.open;
+        localStorage.setItem('sidebarOpen', this.open);     
+    }
+}"
+x-init="$watch('open', value => localStorage.setItem('sidebarOpen', value))"    
+:class="open ? 'w-64 md:w-64 lg:w-72 p-6' : 'w-16 p-2'"
+class="bg-gradient-to-b from-[#102B3C] to-[#205375] h-screen fixed md:relative transform md:translate-x-0 transition-all duration-3000 ease-in-out text-white flex flex-col"
+style="transition-property: width, transform;"
 >
+
 
 
     <!-- Toggle Button & Logo -->
