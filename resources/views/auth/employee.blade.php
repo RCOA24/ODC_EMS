@@ -21,50 +21,47 @@
             <!-- Employee Details -->
             <div class="p-4 md:p-6 flex-1 overflow-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                   
-                    
-                    <!-- Task Management Table -->
-                    <div class="bg-white shadow-md rounded-lg p-4">
+                   <!-- Task Management Section -->
+                    <div class="w-full max-w-[656px] bg-white border border-gray-300 shadow-md rounded-md p-4">
                         <h2 class="text-lg font-semibold mb-3">Tasks</h2>
-                        <table class="w-full border-collapse border border-gray-200 rounded-lg">
-                            <thead>
-                                <tr class="bg-blue-900 text-white">
-                                    <th class="p-2 text-left">Tasks Name</th>
-                                    <th class="p-2 text-center">Status</th>
-                                    <th class="p-2 text-center">Deadline</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-700">
-                                <tr class="border-b">
-                                    <td class="p-2">Develop a new software feature</td>
-                                    <td class="p-2 text-center"><span class="bg-red-500 text-white px-2 py-1 text-sm rounded">Very High</span></td>
-                                    <td class="p-2 text-center">February 20, 2025</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="p-2">Conduct Market Research</td>
-                                    <td class="p-2 text-center"><span class="bg-orange-400 text-white px-2 py-1 text-sm rounded">High</span></td>
-                                    <td class="p-2 text-center">February 18, 2025</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="p-2">Improve Website Performance</td>
-                                    <td class="p-2 text-center"><span class="bg-yellow-400 text-white px-2 py-1 text-sm rounded">Low</span></td>
-                                    <td class="p-2 text-center">February 29, 2025</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2">Designing Graphic Elements</td>
-                                    <td class="p-2 text-center"><span class="bg-green-500 text-white px-2 py-1 text-sm rounded">Normal</span></td>
-                                    <td class="p-2 text-center">February 14, 2025</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="flex justify-end mt-2">
-                            <button class="bg-red-500 text-white px-4 py-2 rounded-lg mr-2">Delete</button>
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Add</button>
+
+                        <!-- Task Table Header -->
+                        <div class="bg-gradient-to-r from-[#205375] to-[#102B3C] text-white px-4 py-2 rounded-t-md flex items-center">
+                            <input type="checkbox" class="w-4 h-4 border border-gray-400 rounded mr-4">
+                            <span class="font-bold text-sm flex-1">TASKS NAME</span>
+                            <span class="font-bold text-sm w-24 text-center">DEADLINE</span>
+                        </div>
+
+                        <!-- Task List -->
+                        <div class="divide-y divide-gray-300">
+                            @php
+                                $tasks = [
+                                    ["name" => "Develop a new software feature", "deadline" => "Feb 20, 2025", "status" => "bg-red-500", "priority" => "Very High"],
+                                    ["name" => "Conduct Market Research", "deadline" => "Feb 18, 2025", "status" => "bg-orange-500", "priority" => "High"],
+                                    ["name" => "Improve Website Performance", "deadline" => "Feb 29, 2025", "status" => "bg-yellow-400", "priority" => "Low"],
+                                    ["name" => "Designing Graphic Elements", "deadline" => "Feb 14, 2025", "status" => "bg-green-500", "priority" => "Normal"]
+                                ];
+                            @endphp
+
+                            @foreach ($tasks as $task)
+                                <div class="flex items-center px-4 py-3 space-x-3">
+                                    <input type="checkbox" class="w-4 h-4 border border-gray-400 rounded">
+                                    <span class="text-sm text-gray-800 flex-1">{{ $task['name'] }}</span>
+                                    <span class="px-2 py-1 text-xs text-white rounded-full {{ $task['status'] }}">{{ $task['priority'] }}</span>
+                                    <span class="w-24 text-sm text-gray-700 text-center">{{ $task['deadline'] }}</span>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="flex justify-end gap-2 mt-4">
+                            <button class="bg-[#EC1C24] text-white px-3 py-1 rounded-md text-xs font-bold">Delete</button>
+                            <button class="bg-[#102B3C] text-white px-3 py-1 rounded-md text-xs font-bold">Add</button>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Bottom Gradient Border -->
             <div class="custom-gradient h-10 rounded-b-lg w-full"></div>
         </div>
