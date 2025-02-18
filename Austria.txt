@@ -17,3 +17,8 @@ February 17, 2025
  - Added Turbo.js so there's no page flickering
  - Added a Fully interactive Sidebar ( Hamburger menu but it's Odecci Logo ) 
  - Fully Optimized the Hamburger logo and the logo of the Company
+
+ February 18, 2025
+• Added the Employee Tasks
+ - Basic Design of Employee Tasks
+ - Step 2 Design of Employee Tasks
