@@ -43,53 +43,39 @@
                 <div class="w-full md:w-2/3 bg-white border-2 border-gray-400 shadow-md rounded-md p-6">
                     <div class="border border-gray-300 rounded-md overflow-hidden">
                         <!-- Header with Gradient Background -->
-                        <div style="background: linear-gradient(to right, rgb(32, 83, 117), rgb(16, 43, 60));"
-                            class="text-white px-5 py-3 flex items-center">
+                        <div class="text-white px-5 py-3 flex items-center"style="background: linear-gradient(to right, rgb(32, 83, 117), rgb(16, 43, 60));">
                             <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded mr-5">
-                            
-                            <!-- Task Name -->
-                            <span class="font-bold text-sm text-left flex-1 px-5">TASKS NAME</span>
-                            
-                            <!-- Adjusted Status Column -->
-                            <span class="font-bold text-sm text-center" style="width: 120px; margin-right: 90px;">STATUS</span>
-
-                            <!-- Deadline -->
+                            <span class="font-bold text-sm flex-1 px-5">TASKS NAME</span>
+                            <span class="font-bold text-sm text-center" style="width: 120px; margin-right: 70px; display: inline-block;">STATUS</span>
                             <span class="font-bold text-sm text-left px-5">DEADLINE</span>
                         </div>
 
-
                         <!-- Task List -->
-                    <div class="divide-y divide-gray-300 bg-white">
-                        @php
-                            $tasks = [
-                                ["name" => "Develop a new software feature", "deadline" => "Feb 20, 2025", "color" => "rgb(236, 28, 36)", "priority" => "Very High"],
-                                ["name" => "Conduct Market Research", "deadline" => "Feb 18, 2025", "color" => "rgb(255, 165, 0)", "priority" => "High"],
-                                ["name" => "Improve Website Performance", "deadline" => "Feb 29, 2025", "color" => "rgb(255, 193, 7)", "priority" => "Low"],
-                                ["name" => "Designing Graphic Elements", "deadline" => "Feb 14, 2025", "color" => "rgb(40, 167, 69)", "priority" => "Normal"]
-                            ];
-                        @endphp
+                        <div class="divide-y divide-gray-300 bg-white">
+                            @php
+                                $tasks = [
+                                    ["name" => "Develop a new software feature", "deadline" => "Feb 20, 2025", "color" => "rgb(236, 28, 36)", "priority" => "Very High"],
+                                    ["name" => "Conduct Market Research", "deadline" => "Feb 18, 2025", "color" => "rgb(255, 165, 0)", "priority" => "High"],
+                                    ["name" => "Improve Website Performance", "deadline" => "Feb 29, 2025", "color" => "rgb(255, 193, 7)", "priority" => "Low"],
+                                    ["name" => "Designing Graphic Elements", "deadline" => "Feb 14, 2025", "color" => "rgb(40, 167, 69)", "priority" => "Normal"]
+                                ];
+                            @endphp
 
-                        @foreach ($tasks as $task)
-                        <div class="flex items-center px-5 py-4 border border-gray-300">
-                            <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded mr-5">
-                            <span class="flex-1 px-5">{{ $task['name'] }}</span>
-                            <span class="px-5 py-2 flex items-center mb-2">
-
-
-
-                                <span style="background-color: {{ $task['color'] }}; padding: 7px 20px; border-radius: 9999px; margin-right: 90px;"
-                                        class="text-white text-xs font-bold text-center whitespace-nowrap">
-                                        {{ $task['priority'] }}
-                                    </span>
-                                
-                            </span>
-                            <span class="w-40 text-left px-2 flex items-start">{{ $task['deadline'] }}</span>
-
-
+                            @foreach ($tasks as $task)
+                            <div class="flex flex-col md:flex-row items-center px-5 py-4 border border-gray-300">
+                                <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded mr-5">
+                                <span class="flex-1 px-5 text-sm">{{ $task['name'] }}</span>
+                                <span class="text-white text-xs font-bold text-center whitespace-nowrap"
+                                    style="background-color: {{ $task['color'] }}; padding: 7px 20px; border-radius: 9999px; margin: 13px 0; min-width: 100px; margin-right: 90px;">
+                                    {{ $task['priority'] }}
+                                </span>
+                                <span class="w-40 text-left px-2 text-sm">{{ $task['deadline'] }}</span>
+                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
                     </div>
 
+                    
                     <div class="flex justify-between p-4 w-full bg-gray-100 border-t">
                         <div class="flex-1"></div> <!-- Spacer -->
                         <div class="flex gap-3">
@@ -117,5 +103,7 @@
     .custom-gradient {
         background: linear-gradient(90deg, #205375 5.08%, #102B3C 92.06%);
     }
+
+   
 </style>
 @endsection
