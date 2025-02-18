@@ -22,3 +22,4 @@ February 17, 2025
 • Added the Employee Tasks
  - Basic Design of Employee Tasks
  - Step 2 Design of Employee Tasks
+ - Applied Tailwindcss at the Employee Tasks

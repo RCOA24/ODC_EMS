@@ -21,53 +21,59 @@
             <!-- Employee Details -->
             <div class="p-4 md:p-6 flex-1 overflow-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                   <!-- Task Management Section -->
-                    <div class="w-full max-w-2xl bg-white border border-gray-300 shadow-md rounded-md p-4 mt-4 ml-4 md:ml-6 lg:ml-8">
-                        <h2 class="text-lg font-semibold mb-3">Tasks</h2>
-                        <!-- Header with Gradient Background -->
-                        <div class="bg-gradient-to-r from-[#205375] to-[#102B3C] text-white px-4 py-3 rounded-t-md flex items-center">
-                            <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded mr-4">
-                            <span class="font-bold text-sm flex-1">TASKS NAME</span>
-                            <span class="font-bold text-sm w-24 text-center">DEADLINE</span>
-                        </div>
+                  <!-- Task Management Section -->
+<div class="w-full max-w-2xl bg-white border border-gray-300 shadow-md rounded-md p-4 mt-4 ml-4 md:ml-6 lg:ml-8">
+    <h2 class="text-lg font-semibold mb-3">Tasks</h2>
 
-                        <!-- Task List -->
-                        <div class="divide-y divide-gray-300">
-                            @php
-                                $tasks = [
-                                    ["name" => "Develop a new software feature", "deadline" => "Feb 20, 2025", "status" => "bg-red-500", "priority" => "Very High"],
-                                    ["name" => "Conduct Market Research", "deadline" => "Feb 18, 2025", "status" => "bg-orange-500", "priority" => "High"],
-                                    ["name" => "Improve Website Performance", "deadline" => "Feb 29, 2025", "status" => "bg-yellow-400", "priority" => "Low"],
-                                    ["name" => "Designing Graphic Elements", "deadline" => "Feb 14, 2025", "status" => "bg-green-500", "priority" => "Normal"]
-                                ];
-                            @endphp
+    <!-- Header with Gradient Background -->
+    <div style="background: linear-gradient(to right, rgb(32, 83, 117), rgb(16, 43, 60));"
+        class="text-white px-4 py-3 rounded-t-md flex items-center">
+        <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded mr-4">
+        <span class="font-bold text-sm flex-1">TASK NAME</span>
+        <span class="font-bold text-sm w-24 text-center">DEADLINE</span>
+        <span class="font-bold text-sm w-24 text-center">STATUS</span>
+    </div>
 
-                            @foreach ($tasks as $task)
-                                <div class="flex items-center px-4 py-3 space-x-3">
-                                    <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded">
-                                    <span class="text-sm text-gray-800 flex-1">{{ $task['name'] }}</span>
-                                    <span class="px-2 py-1 text-xs text-white rounded-full {{ $task['status'] }}">{{ $task['priority'] }}</span>
-                                    <span class="w-24 text-sm text-gray-700 text-center">{{ $task['deadline'] }}</span>
-                                </div>
-                            @endforeach
-                        </div>
+    <!-- Task List -->
+    <div class="divide-y divide-gray-300">
+        @php
+            $tasks = [
+                ["name" => "Develop a new software feature", "deadline" => "Feb 20, 2025", "color" => "rgb(236, 28, 36)", "priority" => "Very High"],
+                ["name" => "Conduct Market Research", "deadline" => "Feb 18, 2025", "color" => "rgb(255, 165, 0)", "priority" => "High"],
+                ["name" => "Improve Website Performance", "deadline" => "Feb 29, 2025", "color" => "rgb(255, 193, 7)", "priority" => "Low"],
+                ["name" => "Designing Graphic Elements", "deadline" => "Feb 14, 2025", "color" => "rgb(40, 167, 69)", "priority" => "Normal"]
+            ];
+        @endphp
 
-                      
-                   <!-- Actions -->
-                        <div class="flex gap-2 mt-4 justify-end w-full"> 
-                            <!-- Delete Button -->
-                            <button style="background-color: rgb(236, 28, 36);" 
-                                class="text-white px-4 py-2 rounded-md text-sm font-bold hover:bg-red-700 transition">
-                                Delete
-                            </button>                  
+        @foreach ($tasks as $task)
+            <div class="flex items-center px-4 py-3 border-b">
+                <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded mr-4">
+                <span class="flex-1">{{ $task['name'] }}</span>
+                <span class="w-24 text-center">{{ $task['deadline'] }}</span>
+                <span style="background-color: {{ $task['color'] }};"
+                    class="text-white px-3 py-1 rounded-full text-sm font-bold text-center w-24">
+                    {{ $task['priority'] }}
+                </span>
+            </div>
+        @endforeach
+    </div>
 
-                            <!-- Add Button -->
-                            <button style="background-color: rgb(16, 43, 60);" 
-                                class="text-white px-4 py-2 rounded-md text-sm font-bold hover:bg-blue-800 transition">
-                                Add
-                            </button>
-                        </div>
-                    </div>
+    <!-- Actions -->
+    <div class="flex gap-2 mt-4 justify-end w-full"> 
+        <!-- Delete Button -->
+        <button style="background-color: rgb(236, 28, 36);" 
+            class="text-white px-4 py-2 rounded-md text-sm font-bold hover:bg-red-700 transition">
+            Delete
+        </button>                  
+
+        <!-- Add Button -->
+        <button style="background-color: rgb(16, 43, 60);" 
+            class="text-white px-4 py-2 rounded-md text-sm font-bold hover:bg-blue-800 transition">
+            Add
+        </button>
+    </div>
+</div>
+
                 </div>
             </div>
 
