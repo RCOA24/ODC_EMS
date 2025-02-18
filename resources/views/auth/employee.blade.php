@@ -24,18 +24,77 @@
                 <div class="w-full md:w-1/3 bg-white border-2 border-gray-400 shadow-md rounded-md p-6">
                     <div class="space-y-4">
                         <div class="flex items-center">
-                            <img src="https://via.placeholder.com/150" alt="Employee Photo" class="w-16 h-16 rounded-full">
+                            <img src="/images/austria.jpg" alt="Employee Photo" class="rounded-full" style="width: 162px; height: 169px;">
                             <div class="ml-4">
-                                <h2 class="text-xl font-semibold">John Doe</h2>
+                                <h2 class="text-xl font-semibold">Charles Austria</h2>
                                 <p class="text-gray-600">Software Engineer</p>
                             </div>
                         </div>
-                        <div class="space-y-2">
-                            <p><strong>Email:</strong> john.doe@example.com</p>
-                            <p><strong>Phone:</strong> +1 234 567 890</p>
-                            <p><strong>Department:</strong> Engineering</p>
-                            <p><strong>Join Date:</strong> Jan 1, 2020</p>
-                        </div>
+                        <!-- Top Header -->
+            <div class="flex items-center justify-between pb-4 border-b border-gray-300">
+                <h1 class="text-2xl font-bold text-gray-900">Employee Details</h1>
+                <button class="bg-[#102B3C] text-white px-1 py-1 rounded flex items-center text-sm font-semibold shadow-md hover:bg-[#183d54] transition">
+                    <svg class="p-2" width="30" height="30" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+
+
+                    <span class="ml-2 p-2">Edit Details</span>
+                    <x-icon-edit class="w-2 h-2 ml-2"></x-icon-edit>
+                </button>
+                       
+            </div> 
+            
+            <div class="pt-4"> 
+                <table class="w-full text-gray-900 text-sm">
+                  <tbody>
+                    <tr>
+                      <td class="text-gray-500 font-medium pr-4 center">First Name</td>
+                      <td class="font-semibold">Rodney Charles</td>
+             
+                    </tr>
+                    <tr>
+                        <td class="text-gray-500 font-medium pr-4 center">Middle Name</td>
+                        <td class="font-semibold">Oliva</td>
+               
+                      </tr>
+                    <tr>
+                      <td class="text-gray-500 font-medium pr-4">Last Name</td>
+                      <td class="font-semibold">Austria</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td class="text-gray-500 font-medium pr-4">Gender</td>
+                      <td class="font-semibold">Male</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td class="text-gray-500 font-medium pr-4">Phone Number</td>
+                      <td class="font-semibold">(+63) 921-716-7659</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td class="text-gray-500 font-medium pr-4">Address</td>
+                      <td class="font-semibold">Poblacion, Guiguinto, Bulacan</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td class="text-gray-500 font-medium pr-4">Employee ID</td>
+                      <td class="font-semibold">010525</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td class="text-gray-500 font-medium pr-4">Email</td>
+                      <td class="font-semibold text-blue-600 underline cursor-pointer">rodneycharlesaustria1124@gmail.com</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td class="text-gray-500 font-medium pr-4">Company</td>
+                      <td class="font-semibold">Odecci Solutions Inc.</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
                     </div>
                 </div>
 

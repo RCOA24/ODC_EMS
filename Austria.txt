@@ -23,3 +23,6 @@ February 17, 2025
  - Basic Design of Employee Tasks
  - Step 2 Design of Employee Tasks
  - Applied Tailwindcss at the Employee Tasks
+ - Finished the Design of the Employee Tasks
+ - Half responsive (Desktop Only), mobile is still ongoing
+ - Some Minor Configurations at sidebar
