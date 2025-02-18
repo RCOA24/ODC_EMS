@@ -22,7 +22,6 @@
             <div class="p-4 md:p-6 flex-1 overflow-auto flex flex-col md:flex-row gap-6">
                 <!-- Employee Details (Left Side) -->
                 <div class="w-full md:w-1/3 bg-white border-2 border-gray-400 shadow-md rounded-md p-6">
-                    <!-- Employee Details Content -->
                     <div class="space-y-4">
                         <div class="flex items-center">
                             <img src="https://via.placeholder.com/150" alt="Employee Photo" class="w-16 h-16 rounded-full">
@@ -42,54 +41,54 @@
 
                 <!-- Task List (Right Side) -->
                 <div class="w-full md:w-2/3 bg-white border-2 border-gray-400 shadow-md rounded-md p-6">
-                    <!-- Wrapper with Border -->
                     <div class="border border-gray-300 rounded-md overflow-hidden">
                         <!-- Header with Gradient Background -->
                         <div style="background: linear-gradient(to right, rgb(32, 83, 117), rgb(16, 43, 60));"
                             class="text-white px-5 py-3 flex items-center">
                             <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded mr-5">
-                            <span class="font-bold text-sm flex-1">TASKS NAME</span>
-                            <span class="font-bold text-sm w-28 text-center">STATUS</span>
-                            <span class="font-bold text-sm w-40 text-center">DEADLINE</span>
+                            <span class="font-bold text-sm w-3/5 text-center flex justify-center px-5">TASKS NAME</span>
+                            <span class="font-bold text-sm w-28 text-center flex justify-center px-5">STATUS</span>
+                            <span class="font-bold text-sm w-40 flex items-center justify-start px-5">DEADLINE</span>
+
+
                         </div>
 
                         <!-- Task List -->
-                        <div class="divide-y divide-gray-300 bg-white">
-                            @php
-                                $tasks = [
-                                    ["name" => "Develop a new software feature", "deadline" => "Feb 20, 2025", "color" => "rgb(236, 28, 36)", "priority" => "Very High"],
-                                    ["name" => "Conduct Market Research", "deadline" => "Feb 18, 2025", "color" => "rgb(255, 165, 0)", "priority" => "High"],
-                                    ["name" => "Improve Website Performance", "deadline" => "Feb 29, 2025", "color" => "rgb(255, 193, 7)", "priority" => "Low"],
-                                    ["name" => "Designing Graphic Elements", "deadline" => "Feb 14, 2025", "color" => "rgb(40, 167, 69)", "priority" => "Normal"]
-                                ];
-                            @endphp
+                    <div class="divide-y divide-gray-300 bg-white">
+                        @php
+                            $tasks = [
+                                ["name" => "Develop a new software feature", "deadline" => "Feb 20, 2025", "color" => "rgb(236, 28, 36)", "priority" => "Very High"],
+                                ["name" => "Conduct Market Research", "deadline" => "Feb 18, 2025", "color" => "rgb(255, 165, 0)", "priority" => "High"],
+                                ["name" => "Improve Website Performance", "deadline" => "Feb 29, 2025", "color" => "rgb(255, 193, 7)", "priority" => "Low"],
+                                ["name" => "Designing Graphic Elements", "deadline" => "Feb 14, 2025", "color" => "rgb(40, 167, 69)", "priority" => "Normal"]
+                            ];
+                        @endphp
 
-                            @foreach ($tasks as $task)
-                                <div class="flex items-center px-5 py-4 border-b">
-                                    <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded mr-5">
-                                    <span class="flex-1">{{ $task['name'] }}</span>
-                                    <span class="w-28 flex justify-center">
-                                        <span style="background-color: {{ $task['color'] }}; padding: 4px 10px; border-radius: 9999px;"
-                                            class="text-white text-sm font-bold text-center whitespace-nowrap">
-                                            {{ $task['priority'] }}
-                                        </span>
-                                    </span>
-                                    <span class="w-40 text-center">{{ $task['deadline'] }}</span>
-                                </div>
-                            @endforeach
+                        @foreach ($tasks as $task)
+                        <div class="flex items-center px-5 py-4 border border-gray-300">
+                            <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded mr-5">
+                            <span class="flex-1 px-5">{{ $task['name'] }}</span>
+                            <span class="w-28 flex justify-center items-center px-5 py-2">
+
+                                <span style="background-color: {{ $task['color'] }}; padding: 7px 20px; border-radius: 9999px;"
+                                    class="text-white text-sm font-bold text-center whitespace-nowrap">
+                                    {{ $task['priority'] }}
+                                </span>
+                            </span>
+                            <span class="w-40 text-center">{{ $task['deadline'] }}</span>
                         </div>
+                        @endforeach
+                    </div>
 
-                        <!-- Actions (Now Inside the Bordered Wrapper) -->
-                        <div class="flex gap-3 p-4 justify-end w-full bg-gray-100 border-t">
+
+                        <div class="flex gap-3 p-4 w-full bg-gray-100 border-t">
                             <!-- Delete Button -->
-                            <button style="background-color: rgb(236, 28, 36);"
-                                class="text-white px-5 py-2 rounded-md text-sm font-bold hover:bg-red-700 transition">
+                            <button style="background-color: rgb(236, 28, 36);" class="text-white px-5 py-2 rounded-md text-sm font-bold hover:bg-red-700 transition">
                                 Delete
                             </button>
-
+                        
                             <!-- Add Button -->
-                            <button style="background-color: rgb(16, 43, 60);"
-                                class="text-white px-5 py-2 rounded-md text-sm font-bold hover:bg-blue-800 transition">
+                            <button style="background-color: rgb(16, 43, 60);" class="text-white px-5 py-2 rounded-md text-sm font-bold hover:bg-blue-800 transition">
                                 Add
                             </button>
                         </div>
