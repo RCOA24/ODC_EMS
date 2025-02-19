@@ -40,9 +40,9 @@
                     <span class="ml-2 p-2">Edit Details</span>
                     <x-icon-edit class="w-2 h-2 ml-2"></x-icon-edit>
                 </button>
-                       
+                        
             </div> 
-            
+            <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50"aria-hidden="true"/>
             <div class="pt-4"> 
                 <table class="w-full text-gray-900 text-sm">
                   <tbody>
@@ -93,10 +93,11 @@
                     </tr>
                   </tbody>
                 </table>
+                <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50"aria-hidden="true"/>
               </div>
-
-                    </div>
-                </div>
+              <h1 class="text-2xl font-bold text-gray-900">Recent Activities</h1>
+            </div>
+        </div>
 
                 <!-- Task List (Right Side) -->
                 <div class="w-full md:w-2/3 bg-white border-2 border-gray-400 shadow-md rounded-md p-6">
