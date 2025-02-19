@@ -37,4 +37,9 @@ February 17, 2025
  - added the svg of clock
  - added the svg of email
  - added the "Send email" button
- - added the circle border around the picture/
+ - added the circle border around the picture
+
+• Applied the Responsiveness of Tailwind into Employee
+ - Added Flexbox
+ - Added a File Schedules
+ 

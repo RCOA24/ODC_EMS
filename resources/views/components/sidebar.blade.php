@@ -3,6 +3,7 @@
 <!-- Include Alpine.js & Turbo.js for Smooth Navigation -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
 <aside 
 x-data="{
