@@ -43,3 +43,9 @@ February 17, 2025
  - Added Flexbox
  - Added a File Schedules
  
+
+ • Added the Automatically Collapsible Responsive Sidebar
+ - Responsive to the all screen sizes
+ - automatically collapse when it meets the screen sizes
+ - there's a clickable button when the sidebar collapsed
+

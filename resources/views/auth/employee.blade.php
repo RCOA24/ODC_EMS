@@ -7,8 +7,8 @@
 <div class="flex flex-col md:flex-row h-screen">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    {{-- Sidebar --}}
-    <x-sidebar active="employee" class="w-full md:w-64 lg:w-72" />
+    {{-- Sidebar --}}   
+    <x-sidebar active="employee"/>
 
     {{-- Main Content --}}
     <div class="flex-1 p-4 md:p-6 bg-gray-100 flex flex-col overflow-hidden">
@@ -28,7 +28,9 @@
                 {{-- Employee Details (Left Side) --}}
                 <div class="w-full md:w-2/6 shadow-xl rounded-md p-6">
                     <div class="flex items-center gap-6">  
-                        <img src="/images/austria.jpg" alt="Employee Photo" class="rounded-full w-40 h-40 border-2 border-black">
+                        <img src="/images/austria.jpg" alt="Employee Photo"
+                        class="rounded-full w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 border-2 border-black object-cover max-w-full">
+                    
                         <div class="space-y-2">
                             <h1 class="text-2xl font-bold text-gray-900">Rodney Austria</h1>
                             <p class="text-gray-600">Software Engineer</p>
@@ -53,7 +55,8 @@
                     <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50" aria-hidden="true"/>
                     {{-- Employee Details --}}
                     <div class="pt-4">
-                        <table class="w-full text-sm text-gray-900">
+                        <table class="w-full text-sm text-gray-900 table-auto break-words">
+
                             <tbody>
                                 @foreach ([
                                     'First Name' => 'Rodney Charles',
@@ -175,7 +178,7 @@
             <div class="custom-gradient text-white p-6 rounded-b-lg flex items-center">
             </div>
         </div>
-    </div> {{-- End Main Content --}}
+    </div> {{-- End Main Content --}}   
 </div>
 
 {{-- Custom Gradient Styling --}}
