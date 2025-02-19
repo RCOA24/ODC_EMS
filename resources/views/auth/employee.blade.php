@@ -3,14 +3,17 @@
 @section('title', 'Employee Profile')
 
 @section('content')
+
 <div class="flex flex-col md:flex-row h-screen">
-    <!-- Sidebar -->
+
+    {{-- Sidebar --}}
     <x-sidebar active="employee" class="w-full md:w-64 lg:w-72" />
 
-    <!-- Main Content -->
+    {{-- Main Content --}}
     <div class="flex-1 p-4 md:p-6 bg-gray-100 flex flex-col overflow-hidden">
         <div class="bg-white rounded-lg shadow-md border flex flex-col h-full max-w-full">
-            <!-- Top Gradient Border -->
+
+            {{-- Top Gradient Border --}}
             <div class="custom-gradient text-white p-4 rounded-t-lg flex items-center">
                 <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <x-icon-employeeMain class="w-5 h-5"></x-icon-employeeMain>
@@ -18,9 +21,10 @@
                 <h1 class="text-lg font-semibold">Employee Profile</h1>
             </div>
 
-            <!-- Employee Details and Task List Container -->
+            {{-- Employee Details and Task List Container --}}
             <div class="p-4 md:p-6 flex-1 overflow-auto flex flex-col md:flex-row gap-6">
-                <!-- Employee Details (Left Side) -->
+
+                {{-- Employee Details (Left Side) --}}
                 <div class="w-full md:w-1/3 bg-white border-2 border-gray-400 shadow-md rounded-md p-6">
                     <div class="space-y-4">
                         <div class="flex items-center">
@@ -30,87 +34,105 @@
                                 <p class="text-gray-600">Software Engineer</p>
                             </div>
                         </div>
-                        <!-- Top Header -->
-            <div class="flex items-center justify-between pb-4 border-b border-gray-300">
-                <h1 class="text-2xl font-bold text-gray-900">Employee Details</h1>
-                <button class="bg-[#102B3C] text-white px-1 py-1 rounded flex items-center text-sm font-semibold shadow-md hover:bg-[#183d54] transition">
-                    <svg class="p-2" width="30" height="30" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
 
+                        {{-- Top Header --}}
+                        <div class="flex items-center justify-between pb-4 border-b border-gray-300">
+                            <h1 class="text-2xl font-bold text-gray-900">Employee Details</h1>
+                            <button class="bg-[#102B3C] text-white px-1 py-1 rounded flex items-center text-sm font-semibold shadow-md hover:bg-[#183d54] transition">
+                                <svg class="p-2" width="30" height="30" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg"></svg> 
+                                <span class="ml-2 p-2">Edit Details</span>
+                                <x-icon-edit class="w-2 h-2 ml-2"></x-icon-edit>
+                            </button>
+                        </div>
 
-                    <span class="ml-2 p-2">Edit Details</span>
-                    <x-icon-edit class="w-2 h-2 ml-2"></x-icon-edit>
-                </button>
-                        
-            </div> 
-            <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50"aria-hidden="true"/>
-            <div class="pt-4"> 
-                <table class="w-full text-gray-900 text-sm">
-                  <tbody>
-                    <tr>
-                      <td class="text-gray-500 font-medium pr-4 center">First Name</td>
-                      <td class="font-semibold">Rodney Charles</td>
-             
-                    </tr>
-                    <tr>
-                        <td class="text-gray-500 font-medium pr-4 center">Middle Name</td>
-                        <td class="font-semibold">Oliva</td>
-               
-                      </tr>
-                    <tr>
-                      <td class="text-gray-500 font-medium pr-4">Last Name</td>
-                      <td class="font-semibold">Austria</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="text-gray-500 font-medium pr-4">Gender</td>
-                      <td class="font-semibold">Male</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="text-gray-500 font-medium pr-4">Phone Number</td>
-                      <td class="font-semibold">(+63) 921-716-7659</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="text-gray-500 font-medium pr-4">Address</td>
-                      <td class="font-semibold">Poblacion, Guiguinto, Bulacan</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="text-gray-500 font-medium pr-4">Employee ID</td>
-                      <td class="font-semibold">010525</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="text-gray-500 font-medium pr-4">Email</td>
-                      <td class="font-semibold text-blue-600 underline cursor-pointer">rodneycharlesaustria1124@gmail.com</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td class="text-gray-500 font-medium pr-4">Company</td>
-                      <td class="font-semibold">Odecci Solutions Inc.</td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50"aria-hidden="true"/>
-              </div>
-              <h1 class="text-2xl font-bold text-gray-900">Recent Activities</h1>
-            </div>
-        </div>
+                        <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50" aria-hidden="true"/>
+                         {{-- Employee Details --}}
+                        <div class="pt-4">
+                            <table class="w-full text-gray-900 text-sm">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-gray-500 font-medium pr-4 center">First Name</td>
+                                        <td class="font-semibold">Rodney Charles</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-gray-500 font-medium pr-4 center">Middle Name</td>
+                                        <td class="font-semibold">Oliva</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-gray-500 font-medium pr-4">Last Name</td>
+                                        <td class="font-semibold">Austria</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-gray-500 font-medium pr-4">Gender</td>
+                                        <td class="font-semibold">Male</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-gray-500 font-medium pr-4">Phone Number</td>
+                                        <td class="font-semibold">(+63) 921-716-7659</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-gray-500 font-medium pr-4">Address</td>
+                                        <td class="font-semibold">Poblacion, Guiguinto, Bulacan</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-gray-500 font-medium pr-4">Employee ID</td>
+                                        <td class="font-semibold">010525</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-gray-500 font-medium pr-4">Email</td>
+                                        <td class="font-semibold text-blue-600 underline cursor-pointer">rodneycharlesaustria1124@gmail.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-gray-500 font-medium pr-4">Company</td>
+                                        <td class="font-semibold">Odecci Solutions Inc.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50" aria-hidden="true"/>
+                        </div>
+                         {{-- End of the Employee Details --}}
 
-                <!-- Task List (Right Side) -->
+                        <h1 class="text-2xl font-bold text-gray-900">Recent Activities</h1>
+                        <div class="flex flex-col gap-6">
+                            {{-- Activity Item 1 --}}
+                            <div class="flex items-start gap-2"> 
+                                <x-icon-clock class="w-6 h-6 text-gray-500"></x-icon-clock>
+                                <div class="flex flex-col">
+                                    <p class="text-base font-medium text-gray-900">
+                                        <strong class="font-semibold">Mervin</strong>
+                                        <span class="text-gray-500">updated this client information</span>
+                                    </p>
+                                    <time datetime="2024-01-24T12:00:00" class="text-sm text-gray-500">30 seconds ago</time>
+                                </div>
+                            </div>
+
+                            {{-- Activity Item 2 --}}
+                            <div class="flex items-start gap-2">
+                                <x-icon-clock class="w-6 h-6 text-gray-500"></x-icon-clock>
+                                <div class="flex flex-col">
+                                    <p class="text-base font-medium text-gray-900">
+                                        <strong class="font-semibold">Mervin</strong>
+                                        <span class="text-gray-500">updated this client information</span>
+                                    </p>
+                                    <time datetime="2024-01-24T12:00:00" class="text-sm text-gray-500">30 seconds ago</time>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                {{-- Task List (Right Side) --}}
                 <div class="w-full md:w-2/3 bg-white border-2 border-gray-400 shadow-md rounded-md p-6">
                     <div class="border border-gray-300 rounded-md overflow-hidden">
-                        <!-- Header with Gradient Background -->
-                        <div class="text-white px-5 py-3 flex items-center"style="background: linear-gradient(to right, rgb(32, 83, 117), rgb(16, 43, 60));">
+                        {{-- Header with Gradient Background --}}
+                        <div class="text-white px-5 py-3 flex items-center" style="background: linear-gradient(to right, rgb(32, 83, 117), rgb(16, 43, 60));">
                             <input type="checkbox" class="w-5 h-5 border border-gray-400 rounded mr-5">
                             <span class="font-bold text-sm flex-1 px-5">TASKS NAME</span>
                             <span class="font-bold text-sm text-center" style="width: 120px; margin-right: 70px; display: inline-block;">STATUS</span>
                             <span class="font-bold text-sm text-left px-5">DEADLINE</span>
                         </div>
 
-                        <!-- Task List -->
+                        {{-- Task List --}}
                         <div class="divide-y divide-gray-300 bg-white">
                             @php
                                 $tasks = [
@@ -135,35 +157,38 @@
                         </div>
                     </div>
 
-                    
                     <div class="flex justify-between p-4 w-full bg-gray-100 border-t">
-                        <div class="flex-1"></div> <!-- Spacer -->
+                        <div class="flex-1"></div> {{-- Spacer --}}
                         <div class="flex gap-3">
-                            <!-- Delete Button -->
+                            {{-- Delete Button --}}
                             <button style="background-color: rgb(236, 28, 36);" 
-                                    class="text-white px-5 py-2 rounded-md text-sm font-bold hover:bg-red-700 transition">
+                                class="text-white px-5 py-2 rounded-md text-sm font-bold hover:bg-red-700 transition">
                                 Delete
                             </button>
-                    
-                            <!-- Add Button -->
+                            {{-- Add Button --}}
                             <button style="background-color: rgb(16, 43, 60);" 
-                                    class="text-white px-5 py-2 rounded-md text-sm font-bold hover:bg-blue-800 transition">
+                                class="text-white px-5 py-2 rounded-md text-sm font-bold hover:bg-blue-800 transition">
                                 Add
                             </button>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                </div> {{-- End Task List (Right Side) --}}
+
+            </div> {{-- End Employee Details and Task List Container --}}
+  {{-- Bottom Gradient Border --}}
+  <div class="custom-gradient text-white p-6 rounded-t-lg flex items-center">
+          </div>
+       </div>
+</div> {{-- End Main Content --}}
+    
+
 </div>
 
-<!-- Custom Gradient Styling -->
+{{-- Custom Gradient Styling --}}
 <style>
-    .custom-gradient {
+  .custom-gradient {
         background: linear-gradient(90deg, #205375 5.08%, #102B3C 92.06%);
     }
-
-   
 </style>
+
 @endsection

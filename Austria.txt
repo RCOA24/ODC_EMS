@@ -27,3 +27,11 @@ February 17, 2025
  - Half responsive (Desktop Only), mobile is still ongoing
  - Some Minor Configurations at sidebar
  - Added the Employee Details, Picture, and SVG Icon
+
+  February 19, 2025
+• Added the Recent Activities
+ - Added the Top and border line
+ - Added the Footer Border line
+ - added the design of the recent Activities
+ - added comments for the whole for better readability
+ - added the svg of clock
