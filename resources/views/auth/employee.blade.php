@@ -26,15 +26,16 @@
             <div class="p-4 md:p-6 flex-1 overflow-auto flex flex-col md:flex-row gap-6">
 
                 {{-- Employee Details (Left Side) --}}
-                <div class="w-full md:w-3/6 shadow-xl rounded-md p-6">
+                <div class="w-full md:w-2/6 shadow-xl rounded-md p-6">
                     <div class="flex items-center gap-6">  
                         <img src="/images/austria.jpg" alt="Employee Photo" class="rounded-full w-40 h-40 border-2 border-black">
                         <div class="space-y-2">
                             <h1 class="text-2xl font-bold text-gray-900">Rodney Austria</h1>
                             <p class="text-gray-600">Software Engineer</p>
-                            <button class="bg-[#102B3C] text-white px-2 py-1 rounded flex items-center text-sm font-semibold shadow-md hover:bg-[#183d54] transition">
-                                <span class="ml-2 p-2">Send Email</span>
-                                <x-icon-email class="w-2 h-2 ml-2"></x-icon-email>
+
+                            <button class="bg-[#102B3C] text-white px-1.5 py-0.5 rounded flex items-center text-xs font-semibold shadow-md hover:bg-[#183d54] transition">
+                                <span class="p-1">Send Email</span>  {{-- Adjusted padding --}}
+                                <x-icon-email class="w-3 h-3"></x-icon-email>  {{-- Adjusted icon size --}}
                             </button>
                         </div>
                     </div>
@@ -42,53 +43,34 @@
                     {{-- Top Header --}}
                     <div class="flex items-center justify-between pb-4">
                         <h1 class="text-2xl font-bold text-gray-900">Employee Details</h1>
-                        <button class="bg-[#102B3C] text-white px-1 py-1 rounded flex items-center text-sm font-semibold shadow-md hover:bg-[#183d54] transition">
-                            <span class="ml-2 p-2">Edit Details</span>
-                            <x-icon-edit class="w-2 h-2 ml-2"></x-icon-edit>
+
+                        <button class="bg-[#102B3C] text-white px-1.5 py-0.5 rounded flex items-center text-xs font-semibold shadow-md hover:bg-[#183d54] transition">
+                            <span class="p-1">Edit Details</span>  {{-- Adjusted padding here too --}}
+                            <x-icon-edit class="w-3 h-3"></x-icon-edit>  {{-- Adjusted icon size --}}
                         </button>
                     </div>
 
                     <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50" aria-hidden="true"/>
                     {{-- Employee Details --}}
                     <div class="pt-4">
-                        <table class="w-full text-gray-900 text-sm">
+                        <table class="w-full text-sm text-gray-900">
                             <tbody>
+                                @foreach ([
+                                    'First Name' => 'Rodney Charles',
+                                    'Middle Name' => 'Oliva',
+                                    'Last Name' => 'Austria',
+                                    'Gender' => 'Male',
+                                    'Phone Number' => '(+63) 921-716-7659',
+                                    'Address' => 'Poblacion, Guiguinto, Bulacan',
+                                    'Employee ID' => '010525',
+                                    'Email' => 'rodneycharlesaustria1124@gmail.com',
+                                    'Company' => 'Odecci Solutions Inc.'
+                                ] as $label => $value)
                                 <tr>
-                                    <td class="text-gray-500 font-medium pr-4">First Name</td>
-                                    <td class="font-semibold">Rodney Charles</td>
+                                    <td class="text-gray-500 font-medium pr-4">{{ $label }}</td>
+                                    <td class="font-semibold {{ $label == 'Email' ? 'text-blue-600 underline cursor-pointer' : '' }}">{{ $value }}</td>
                                 </tr>
-                                <tr>
-                                    <td class="text-gray-500 font-medium pr-4">Middle Name</td>
-                                    <td class="font-semibold">Oliva</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-gray-500 font-medium pr-4">Last Name</td>
-                                    <td class="font-semibold">Austria</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-gray-500 font-medium pr-4">Gender</td>
-                                    <td class="font-semibold">Male</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-gray-500 font-medium pr-4">Phone Number</td>
-                                    <td class="font-semibold">(+63) 921-716-7659</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-gray-500 font-medium pr-4">Address</td>
-                                    <td class="font-semibold">Poblacion, Guiguinto, Bulacan</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-gray-500 font-medium pr-4">Employee ID</td>
-                                    <td class="font-semibold">010525</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-gray-500 font-medium pr-4">Email</td>
-                                    <td class="font-semibold text-blue-600 underline cursor-pointer">rodneycharlesaustria1124@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-gray-500 font-medium pr-4">Company</td>
-                                    <td class="font-semibold">Odecci Solutions Inc.</td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50 mb-2" aria-hidden="true"/>
@@ -136,7 +118,7 @@
                         </div>
 
                         {{-- Task List --}}
-                        <div class="divide-y divide-gray-300 bg-white">
+                        <div class="divide-y divide-gray-300 bg-white overflow-auto">
                             @php
                                 $tasks = [
                                     ["name" => "Develop a new software feature", "deadline" => "Feb 20, 2025", "color" => "rgb(236, 28, 36)", "priority" => "Very High"],
