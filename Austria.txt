@@ -35,3 +35,6 @@ February 17, 2025
  - added the design of the recent Activities
  - added comments for the whole for better readability
  - added the svg of clock
+ - added the svg of email
+ - added the "Send email" button
+ - added the circle border around the picture/

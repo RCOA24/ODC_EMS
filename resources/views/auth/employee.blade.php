@@ -24,14 +24,21 @@
             {{-- Employee Details and Task List Container --}}
             <div class="p-4 md:p-6 flex-1 overflow-auto flex flex-col md:flex-row gap-6">
 
-                {{-- Employee Details (Left Side) --}}
-                <div class="w-full md:w-1/3 bg-white border-2 border-gray-400 shadow-md rounded-md p-6">
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <img src="/images/austria.jpg" alt="Employee Photo" class="rounded-full" style="width: 162px; height: 169px;">
-                            <div class="ml-4">
-                                <h2 class="text-xl font-semibold">Charles Austria</h2>
+                  {{-- Employee Details (Left Side) --}}
+                  <div class="w-full md:w-1/3 bg-white border-2 border-gray-400 shadow-md rounded-md p-6">
+                    
+                    <div class="space-y-6"> 
+                        <div class="flex items-center gap-6">  
+                            <img src="/images/austria.jpg" alt="Employee Photo"  class="rounded-full"  style="width: 162px; height: 169px; border: 2px solid black;">
+
+                            <div class="space-y-2">
+                                <h1 class="text-2xl font-bold text-gray-900">Rodney Austria</h1>
                                 <p class="text-gray-600">Software Engineer</p>
+
+                                <button class="bg-[#102B3C] text-white px-2 py-1 rounded flex items-center text-sm font-semibold shadow-md hover:bg-[#183d54] transition">
+                                    <span class="ml-2 p-2">Send Email</span>
+                                    <x-icon-email class="w-2 h-2 ml-2"></x-icon-email>
+                                </button>
                             </div>
                         </div>
 
@@ -39,7 +46,6 @@
                         <div class="flex items-center justify-between pb-4 border-b border-gray-300">
                             <h1 class="text-2xl font-bold text-gray-900">Employee Details</h1>
                             <button class="bg-[#102B3C] text-white px-1 py-1 rounded flex items-center text-sm font-semibold shadow-md hover:bg-[#183d54] transition">
-                                <svg class="p-2" width="30" height="30" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg"></svg> 
                                 <span class="ml-2 p-2">Edit Details</span>
                                 <x-icon-edit class="w-2 h-2 ml-2"></x-icon-edit>
                             </button>
@@ -92,7 +98,7 @@
                         </div>
                          {{-- End of the Employee Details --}}
 
-                        <h1 class="text-2xl font-bold text-gray-900">Recent Activities</h1>
+                        <h1 class="text-2xl font-bold text-gray-900 mb-2">Recent Activities</h1>
                         <div class="flex flex-col gap-6">
                             {{-- Activity Item 1 --}}
                             <div class="flex items-start gap-2"> 
