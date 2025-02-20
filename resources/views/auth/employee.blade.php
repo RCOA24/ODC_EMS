@@ -23,51 +23,52 @@
             </div>
 
             {{-- Employee Details and Task List Container --}}
-            <div class="p-4 md:p-6 flex-1 overflow-auto flex flex-col md:flex-row gap-6">
+            <div class="p-2 md:p-4 flex-1 overflow-auto flex flex-col md:flex-row gap-4">
 
                 {{-- Employee Details (Left Side) --}}
-                <div class="w-full md:w-2/6 shadow-xl rounded-md p-6">
-                    <div class="flex items-center gap-6">  
+                <div class="w-full md:w-2/6 shadow-xl rounded-md p-3">
+                    <div class="flex items-center gap-3">  
                         <img src="/images/austria.jpg" alt="Employee Photo"
-                        class="rounded-full w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 border-2 border-black object-cover max-w-full">
+                        class="rounded-full w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 border-2 border-black object-cover max-w-full">
+                    
                     
                         <div class="space-y-2">
                             <h1 class="text-2xl font-bold text-gray-900">Rodney Austria</h1>
                             <p class="text-gray-600">Software Engineer</p>
 
-                            <button class="bg-[#102B3C] text-white px-1.5 py-0.5 rounded flex items-center text-xs font-semibold shadow-md hover:bg-[#183d54] transition">
-                                <span class="p-1">Send Email</span>  {{-- Adjusted padding --}}
-                                <x-icon-email class="w-3 h-3"></x-icon-email>  {{-- Adjusted icon size --}}
+                            <button class="bg-[#102B3C] text-white px-1 py-0.5 rounded flex items-center text-[10px] font-semibold shadow-sm hover:bg-[#183d54] transition">
+                                <span class="p-0.5">Send Email</span>  {{-- Reduced padding and shortened text --}}
+                                <x-icon-email class="w-2.5 h-2.5"></x-icon-email>  {{-- Smaller icon --}}
                             </button>
                         </div>
                     </div>
 
                     {{-- Top Header --}}
-                    <div class="flex items-center justify-between pb-4">
+                    <div class="flex items-center justify-between">
                         <h1 class="text-2xl font-bold text-gray-900">Employee Details</h1>
 
-                        <button class="bg-[#102B3C] text-white px-1.5 py-0.5 rounded flex items-center text-xs font-semibold shadow-md hover:bg-[#183d54] transition">
-                            <span class="p-1">Edit Details</span>  {{-- Adjusted padding here too --}}
-                            <x-icon-edit class="w-3 h-3"></x-icon-edit>  {{-- Adjusted icon size --}}
+                        <button class="bg-[#102B3C] text-white px-1 py-0.5 rounded flex items-center text-[10px] font-semibold shadow-sm hover:bg-[#183d54] transition">
+                            <span class="p-0.5">Edit Details</span>  {{-- Reduced padding and shortened text --}}
+                            <x-icon-edit class="w-2.5 h-2.5"></x-icon-edit>  {{-- Smaller icon --}}
                         </button>
                     </div>
 
                     <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50" aria-hidden="true"/>
                     {{-- Employee Details --}}
-                    <div class="pt-4">
-                        <table class="w-full text-sm text-gray-900 table-auto break-words">
+                    <div class="pt-2">
+                        <table class="w-full text-xs text-gray-900 table-auto break-words">
 
                             <tbody>
                                 @foreach ([
-                                    'First Name' => 'Rodney Charles',
-                                    'Middle Name' => 'Oliva',
-                                    'Last Name' => 'Austria',
-                                    'Gender' => 'Male',
-                                    'Phone Number' => '(+63) 921-716-7659',
-                                    'Address' => 'Poblacion, Guiguinto, Bulacan',
-                                    'Employee ID' => '010525',
-                                    'Email' => 'rodneycharlesaustria1124@gmail.com',
-                                    'Company' => 'Odecci Solutions Inc.'
+                                    'First Name:' => 'Rodney Charles',
+                                    'Middle Name:' => 'Oliva',
+                                    'Last Name:' => 'Austria',
+                                    'Gender:' => 'Male',
+                                    'Phone Number:' => '(+63) 921-716-7659',
+                                    'Address:' => 'Poblacion, Guiguinto, Bulacan',
+                                    'Employee ID:' => '010525',
+                                    'Email:' => 'rodneycharlesaustria1124@gmail.com',
+                                    'Company:' => 'Odecci Solutions Inc.'
                                 ] as $label => $value)
                                 <tr>
                                     <td class="text-gray-500 font-medium pr-4">{{ $label }}</td>
@@ -80,29 +81,29 @@
                     </div>
                     {{-- End of the Employee Details --}}
 
-                    <h1 class="text-2xl font-bold text-gray-900 mb-2">Recent Activities</h1>
-                    <div class="flex flex-col gap-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-2">Recent Activities</h2>
+                    <div class="flex flex-col gap-3">
                         {{-- Activity Item 1 --}}
                         <div class="flex items-start gap-2"> 
-                            <x-icon-clock class="w-6 h-6 text-gray-500"></x-icon-clock>
+                            <x-icon-clock class="w-4 h-4 text-gray-500"></x-icon-clock>
                             <div class="flex flex-col">
-                                <p class="text-base font-medium text-gray-900">
+                                <p class="text-xs font-medium text-gray-900">
                                     <strong class="font-semibold">Mervin</strong>
                                     <span class="text-gray-500">updated this client information</span>
                                 </p>
-                                <time datetime="2024-01-24T12:00:00" class="text-sm text-gray-500">30 seconds ago</time>
+                                <time datetime="2024-01-24T12:00:00" class="text-xs text-gray-500">30 seconds ago</time>
                             </div>
                         </div>
 
                         {{-- Activity Item 2 --}}
                         <div class="flex items-start gap-2">
-                            <x-icon-clock class="w-6 h-6 text-gray-500"></x-icon-clock>
+                            <x-icon-clock class="w-4 h-4 text-gray-500"></x-icon-clock>
                             <div class="flex flex-col">
-                                <p class="text-base font-medium text-gray-900">
+                                <p class="text-xs font-medium text-gray-900">
                                     <strong class="font-semibold">Mervin</strong>
                                     <span class="text-gray-500">updated this client information</span>
                                 </p>
-                                <time datetime="2024-01-24T12:00:00" class="text-sm text-gray-500">30 seconds ago</time>
+                                <time datetime="2024-01-24T12:00:00" class="text-xs text-gray-500">30 seconds ago</time>
                             </div>
                         </div>
                     </div>              
