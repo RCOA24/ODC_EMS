@@ -108,8 +108,8 @@
                     </div>              
                 </div>
 
-                {{-- Task List (Right Side) --}}
-                <div class="w-full md:w-3/4 bg-white shadow-lg rounded-md p-4">
+                            {{-- Task List (Right Side) --}}
+                <div class="w-full md:w-3/4 bg-white shadow-lg rounded-md p-4 flex flex-col relative">
                     <div class="border border-gray-300 rounded-md overflow-hidden">
                         {{-- Header with Gradient Background --}}
                         <div class="text-white px-3 py-2 flex items-center text-xs font-bold" 
@@ -169,11 +169,18 @@
                         </div>
                     </div>
 
-                    <x-schedules />
+                    {{-- Schedules Card - Positioned Bottom Right --}}
+                    <div class="flex justify-end mt-4">
+                        <x-schedules/>
+                        <x-notes/>
+                    </div>
                 </div>
-                {{-- End Task List (Right Side) --}}
+                {{-- End Task List --}}
 
+                
+                
             </div> {{-- End Employee Details and Task List Container --}}
+            
             {{-- Bottom Gradient Border --}}
             <div class="custom-gradient text-white p-6 rounded-b-lg flex items-center">
             </div>

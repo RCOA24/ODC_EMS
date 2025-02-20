@@ -49,3 +49,10 @@ February 17, 2025
  - automatically collapse when it meets the screen sizes
  - there's a clickable button when the sidebar collapsed
 
+  February 20, 2025
+ - Created the design of the Schedules
+ - Fully responsive design of the Schedules
+ - Created the design of the notes
+ - Fully responsive design of the Notes
+
+
