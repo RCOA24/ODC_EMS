@@ -15,7 +15,7 @@
     
     <!-- Mobile Toggle Button -->
     <button @click="toggle()" class="md:hidden fixed top-4 right-4 z-50 p-2 bg-gray-800 text-white rounded">
-        <x-dynamic-component :component="'icon-sidebar'" class="w-6 h-6" />
+        <x-dynamic-component :component="'icon-navbar'" class="w-6 h-6" />
     </button>
     
     <aside :class="{'-translate-x-full': !open, 'translate-x-0': open}" 

@@ -1,8 +1,8 @@
-<div class="w-full sm:w-full md:w-2/3 lg:w-1/2 flex justify-center p-3">
+<div class="w-full sm:w-full md:w-2/3 lg:w-1/2 flex justify-center p-3 overflow-hidden">
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     {{-- Notes Card --}}
-    <div class="w-full max-w-sm bg-white rounded-lg shadow-lg overflow-hidden">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="bg-[#1B3A5B] p-2 flex justify-between items-center">
             <div class="flex items-center gap-1">
                 <h2 class="text-lg font-bold text-white tracking-wide p-3">Notes</h2>
@@ -52,7 +52,7 @@
                         <span class="text-gray-500 text-xs">{{ $note['date'] }} • {{ $note['author'] }}</span>
 
                         @if ($index !== count($notes) - 1)
-                        <div class="absolute left-10 top-0 w-[2px] h-[calc(100%+100%)] bg-black"></div>
+                        <div class="absolute left-10 top-0 w-[2px] h-full bg-black"></div>
                         @endif
                     </div>
                 </div>
