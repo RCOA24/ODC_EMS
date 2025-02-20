@@ -1,3 +1,5 @@
+<script src="https://cdn.tailwindcss.com"></script>
+
 <div class="w-full md:w-3/4 p-4 flex justify-end">
     {{-- Schedules Card --}}
     <div class="w-full max-w-md bg-white rounded-lg shadow-lg overflow-hidden">
