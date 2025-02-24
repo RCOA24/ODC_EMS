@@ -44,15 +44,25 @@ February 17, 2025
  - Added a File Schedules
  
 
- • Added the Automatically Collapsible Responsive Sidebar
+• Added the Automatically Collapsible Responsive Sidebar
  - Responsive to the all screen sizes
  - automatically collapse when it meets the screen sizes
  - there's a clickable button when the sidebar collapsed
 
-  February 20, 2025
+• February 20, 2025
  - Created the design of the Schedules
  - Fully responsive design of the Schedules
  - Created the design of the notes
  - Fully responsive design of the Notes
+
+ • February 24, 2025
+ - Developed the Sidebar and Nav bar
+ - Made the Employee to be fully responsive for all of the screen sizes
+ - Developed the Dashboard With Fully Responsive
+ - Developed the Messages with Fully Responsive
+ - Developed the Appointments with Fully Responsive
+ - Developed the Projects with Fully Responsive
+ - Developed the Settings with Fully Responsive
+ - Developed the Admin page with Fully Responsive 
 
 

@@ -21,7 +21,7 @@
         </div>
 
         {{-- Notes List --}}
-        <div class="p-3 space-y-3">
+        <div class="p-3 space-y-3 table-auto">
             @php
                 $notes = [
                     [
@@ -52,7 +52,7 @@
                         <span class="text-gray-500 text-xs">{{ $note['date'] }} • {{ $note['author'] }}</span>
 
                         @if ($index !== count($notes) - 1)
-                        <div class="absolute left-10 top-0 w-[2px] h-full bg-black"></div>
+                        <div class="absolute left-10 top-0 w-[2px] h-[calc(100%+100%)] bg-black"></div>
                         @endif
                     </div>
                 </div>
