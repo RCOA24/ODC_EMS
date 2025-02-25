@@ -31,7 +31,46 @@
             <div class="mt-8 bg-white p-6 rounded-xl shadow-md">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-semibold text-gray-700">Projects</h2>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">+ New Project</button>
+                    <div x-data="{ showModal: false }">
+                        <!-- New Project Button -->
+                        <button @click="showModal = true" 
+                                class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                            + New Project
+                        </button>
+                    
+                        <!-- Modal -->
+                        <div x-show="showModal" x-cloak class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+                            <div class="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+                                <h2 class="text-lg font-bold mb-4">Create New Project</h2>
+                                
+                                <!-- Project Name Input -->
+                                <label class="block text-sm font-medium text-gray-700">Project Name</label>
+                                <input type="text" class="w-full p-2 border rounded-md mb-4" placeholder="Enter project name">
+                    
+                                <!-- Project Description -->
+                                <label class="block text-sm font-medium text-gray-700">Description</label>
+                                <textarea class="w-full p-2 border rounded-md mb-4" rows="3" placeholder="Enter project details"></textarea>
+                    
+                                <!-- Modal Buttons -->
+                                <div class="flex justify-end space-x-2">
+                                    <button @click="showModal = false" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md">Cancel</button>
+                                    <button @click="saveProject()" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Prevent Flickering -->
+                    <style>
+                        [x-cloak] { display: none !important; }
+                    </style>
+                    
+                    <script>
+                        function saveProject() {
+                            alert('Project created successfully!'); // Replace with actual save logic
+                        }
+                    </script>
+                    
                 </div>
 
                 <div class="overflow-x-auto">

@@ -3,7 +3,7 @@
 @section('title', 'Settings')
 
 @section('content')
-    <div class="flex h-screen">
+    <div x-data="{ activeTab: 'account' }" class="flex h-screen">
         <x-sidebar active="settings" />
 
         <div class="pt-16 flex-1 p-6 bg-gray-50">
@@ -12,13 +12,13 @@
             <div class="bg-white p-6 rounded-xl shadow-md">
                 <!-- Tabs -->
                 <div class="border-b flex space-x-6 text-gray-600">
-                    <button class="py-3 px-4 text-blue-600 border-b-2 border-blue-500 font-semibold">Account</button>
-                    <button class="py-3 px-4 hover:text-blue-500">Notifications</button>
-                    <button class="py-3 px-4 hover:text-blue-500">Appearance</button>
+                    <button @click="activeTab = 'account'" :class="activeTab === 'account' ? 'text-blue-600 border-b-2 border-blue-500 font-semibold' : 'hover:text-blue-500'" class="py-3 px-4">Account</button>
+                    <button @click="activeTab = 'notifications'" :class="activeTab === 'notifications' ? 'text-blue-600 border-b-2 border-blue-500 font-semibold' : 'hover:text-blue-500'" class="py-3 px-4">Notifications</button>
+                    <button @click="activeTab = 'appearance'" :class="activeTab === 'appearance' ? 'text-blue-600 border-b-2 border-blue-500 font-semibold' : 'hover:text-blue-500'" class="py-3 px-4">Appearance</button>
                 </div>
 
                 <!-- Account Settings -->
-                <div class="mt-6">
+                <div x-show="activeTab === 'account'" class="mt-6">
                     <h2 class="text-lg font-semibold text-gray-700 mb-4">Account Information</h2>
 
                     <form action="#" class="space-y-4">
@@ -43,7 +43,7 @@
                 </div>
 
                 <!-- Notification Settings -->
-                <div class="mt-8">
+                <div x-show="activeTab === 'notifications'" class="mt-6">
                     <h2 class="text-lg font-semibold text-gray-700 mb-4">Notification Preferences</h2>
                     <div class="space-y-3">
                         <label class="flex items-center space-x-3">
@@ -55,11 +55,16 @@
                             <input type="checkbox" class="form-checkbox text-blue-600">
                             <span class="text-gray-700">Receive SMS Notifications</span>
                         </label>
+
+                        <label class="flex items-center space-x-3">
+                            <input type="checkbox" class="form-checkbox text-blue-600">
+                            <span class="text-gray-700">Push Notifications</span>
+                        </label>
                     </div>
                 </div>
 
-                <!-- Theme Settings -->
-                <div class="mt-8">
+                <!-- Appearance Settings -->
+                <div x-show="activeTab === 'appearance'" class="mt-6">
                     <h2 class="text-lg font-semibold text-gray-700 mb-4">Appearance</h2>
                     <label class="flex items-center space-x-3 cursor-pointer">
                         <input type="checkbox" class="hidden peer">
@@ -72,4 +77,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Prevent Flickering -->
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
 @endsection

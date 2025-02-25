@@ -67,5 +67,8 @@ February 17, 2025
 
  • February 25, 2025
  - Developed the modals for the Employee
+ - Developed the modals for the Projects
+ - Developed the modals for the Admin
+
 
 
