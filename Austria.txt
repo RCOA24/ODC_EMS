@@ -65,4 +65,7 @@ February 17, 2025
  - Developed the Settings with Fully Responsive
  - Developed the Admin page with Fully Responsive 
 
+ • February 25, 2025
+ - Developed the modals for the Employee
+
 

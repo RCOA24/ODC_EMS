@@ -1,13 +1,15 @@
 @props(['active' => 'dashboard'])
 
 <!-- Include Alpine.js & Turbo.js for Smooth Navigation -->
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo"></script>
-<script src="https://cdn.tailwindcss.com"></script>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    </head>
 
 <div x-data="{
     isMobile: window.innerWidth < 1024,
-    isMenuOpen: false,
+    isMenuOpen: false,  
     updateScreenSize() {
         this.isMobile = window.innerWidth < 1024;
         if (!this.isMobile) this.isMenuOpen = false;
@@ -15,7 +17,7 @@
 }" x-init="updateScreenSize(); window.addEventListener('resize', () => updateScreenSize());">
 
    <!-- Navbar (Tablet & Mobile) -->
-<nav x-show="isMobile" class="bg-gradient-to-b from-[#102B3C] to-[#205375] text-white p-2 fixed w-full top-0 z-50 flex justify-between items-center">
+   <nav x-show="isMobile" x-cloak class="bg-gradient-to-b from-[#102B3C] to-[#205375] text-white p-2 fixed w-full top-0 z-50 flex justify-between items-center">
     <span class="text-base font-semibold">Odecci Solutions Inc.</span>
     <button @click="isMenuOpen = !isMenuOpen" class="p-1 bg-gray-800 text-white rounded">
         <x-dynamic-component :component="'icon-navbar'" class="w-5 h-5" />
@@ -23,7 +25,7 @@
 </nav>
 
 <!-- Animated Navbar Menu (Smaller) -->
-<div x-show="isMobile && isMenuOpen" 
+<div x-show="isMobile && isMenuOpen"  x-cloak 
     x-transition:enter="transition ease-out duration-300 transform"
     x-transition:enter-start="opacity-0 -translate-y-5"
     x-transition:enter-end="opacity-100 translate-y-0"
@@ -70,7 +72,8 @@
 </div>
 
     <!-- Sidebar (Larger Screens) -->
-    <aside x-show="!isMobile" class="bg-gradient-to-b from-[#102B3C] to-[#205375] h-screen fixed md:relative text-white flex flex-col w-64 md:w-72 p-6 z-40">
+    <aside x-show="!isMobile" x-cloak class="bg-gradient-to-b from-[#102B3C] to-[#205375] h-screen fixed md:relative text-white flex flex-col w-64 md:w-72 p-6 z-40">
+
         <div class="flex flex-col items-center mb-6">
             <x-dynamic-component :component="'icon-logo'" class="w-8 h-8 text-white" />
         </div>

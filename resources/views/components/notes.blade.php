@@ -1,5 +1,11 @@
-<div class="w-full sm:w-full md:w-2/3 lg:w-1/2 flex justify-center p-3 overflow-hidden">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+<div class="w-full sm:w-full md:w-2/3 lg:w-1/2 flex justify-center p-3 overflow-hidden" x-data="{ showModal: false }">
+  
 
     {{-- Notes Card --}}
     <div class="w-full max-w-md bg-white rounded-lg shadow-lg overflow-hidden">
@@ -8,7 +14,7 @@
                 <h2 class="text-lg font-bold text-white tracking-wide p-3">Notes</h2>
                 <span class="text-base text-gray-300">(2)</span>
             </div>
-            <button class="text-white text-base hover:bg-slate-700 w-6 h-6 flex items-center justify-center rounded-lg border border-white/30">
+            <button @click="showModal = true" class="text-white text-base hover:bg-slate-700 w-6 h-6 flex items-center justify-center rounded-lg border border-white/30">
                 +
             </button>
         </div>
@@ -19,7 +25,7 @@
             <button class="bg-gray-200 text-gray-700 px-2 py-1 rounded-md text-sm">Management</button>
             <button class="bg-gray-200 text-gray-700 px-2 py-1 rounded-md text-sm">Ideas</button>
         </div>
-
+        
         {{-- Notes List --}}
         <div class="p-3 space-y-3 table-auto">
             @php
@@ -57,6 +63,15 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+    </div>
+
+    {{-- Modal --}}
+    <div x-show="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50" x-cloak>
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+            <h2 class="text-lg font-bold text-gray-800 mb-4">Notes Modal</h2>
+            <p class="text-gray-600 text-sm">Testing Purposes</p>
+            <button @click="showModal = false" class="mt-4 bg-red-500 text-white px-4 py-2 rounded-md">Close</button>
         </div>
     </div>
 </div>

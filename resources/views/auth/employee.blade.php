@@ -4,8 +4,13 @@
 
 @section('content')
 
-<div class="flex flex-col md:flex-row h-screen">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+<div class="flex flex-col md:flex-row h-screen">
+    
 
     {{-- Sidebar --}}   
     <x-sidebar active="employee"/>
@@ -35,48 +40,122 @@
                             <h1 class="text-2xl font-bold text-gray-900">Rodney Austria</h1>
                             <p class="text-gray-600">Software Engineer</p>
 
-                            <button class="bg-[#102B3C] text-white px-1 py-0.5 rounded flex items-center text-[10px] font-semibold shadow-sm hover:bg-[#183d54] transition">
-                                <span class="p-0.5">Send Email</span>
-                                <x-icon-email class="w-2.5 h-2.5"></x-icon-email>
-                            </button>
+<!-- Add CSS to prevent flickering -->
+<style>
+    [x-cloak] { display: none !important; }
+</style>
+
+<!-- Alpine.js Wrapper -->
+<div x-data="{ showEmailModal: false }">
+
+    <!-- Send Email Button -->
+    <button @click="showEmailModal = true" 
+        class="bg-[#102B3C] text-white px-1 py-0.5 rounded flex items-center text-[10px] font-semibold shadow-sm hover:bg-[#183d54] transition">
+        <span class="p-0.5">Send Email</span>
+        <x-icon-email class="w-2.5 h-2.5"></x-icon-email>
+    </button>
+
+    <!-- Email Modal -->
+    <div x-show="showEmailModal" x-cloak 
+        class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        
+        <div class="bg-white p-4 rounded-lg shadow-lg w-80">
+            <h2 class="text-lg font-semibold mb-3">Send Email</h2>
+            
+            <label class="block text-sm font-medium text-gray-700">Recipient Email</label>
+            <input type="email" class="w-full p-2 border rounded mt-1 text-sm" placeholder="Enter email...">
+            
+            <label class="block text-sm font-medium text-gray-700 mt-3">Message</label>
+            <textarea class="w-full p-2 border rounded mt-1 text-sm" placeholder="Type your message..."></textarea>
+            
+            <div class="mt-4 flex justify-end space-x-2">
+                <button @click="showEmailModal = false" class="bg-gray-300 px-3 py-1 rounded text-sm">Cancel</button>
+                <button class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700 transition">Send</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
                         </div>
                     </div>
 
-                    {{-- Top Header --}}
-                    <div class="flex items-center justify-between">
-                        <h1 class="text-2xl font-bold text-gray-900">Employee Details</h1>
+                 <!-- Top Header -->
+<div class="flex items-center justify-between">
+    <h1 class="text-2xl font-bold text-gray-900">Employee Details</h1>
+    <button onclick="openModal()" class="bg-[#102B3C] text-white px-2 py-1 rounded flex items-center text-xs font-semibold shadow-sm hover:bg-[#183d54] transition">
+        <span class="p-0.5">Edit Details</span>
+        <x-icon-edit class="w-3 h-3"></x-icon-edit>
+    </button>
+</div>
 
-                        <button class="bg-[#102B3C] text-white px-1 py-0.5 rounded flex items-center text-[10px] font-semibold shadow-sm hover:bg-[#183d54] transition">
-                            <span class="p-0.5">Edit Details</span>
-                            <x-icon-edit class="w-2.5 h-2.5"></x-icon-edit>
-                        </button>
-                    </div>
+<hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50" aria-hidden="true"/>
 
-                    <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50" aria-hidden="true"/>
-                    {{-- Employee Details --}}
-                    <div class="pt-2">
-                        <table class="w-full text-xs text-gray-900 table-auto break-words">
-                            <tbody>
-                                @foreach ([
-                                    'First Name:' => 'Rodney Charles',
-                                    'Middle Name:' => 'Oliva',
-                                    'Last Name:' => 'Austria',
-                                    'Gender:' => 'Male',
-                                    'Phone Number:' => '(+63) 921-716-7659',
-                                    'Address:' => 'Poblacion, Guiguinto, Bulacan',
-                                    'Employee ID:' => '010525',
-                                    'Email:' => 'rodneycharlesaustria1124@gmail.com',
-                                    'Company:' => 'Odecci Solutions Inc.'
-                                ] as $label => $value)
-                                <tr>
-                                    <td class="text-gray-500 font-medium pr-4">{{ $label }}</td>
-                                    <td class="font-semibold {{ $label == 'Email' ? 'text-blue-600 underline cursor-pointer' : '' }}">{{ $value }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50 mb-2" aria-hidden="true"/>
-                    </div>
+<!-- Employee Details -->
+<div class="pt-2">
+    <table class="w-full text-xs text-gray-900 table-auto break-words">
+        <tbody>
+            @foreach ([
+                'First Name:' => 'Rodney Charles',
+                'Middle Name:' => 'Oliva',
+                'Last Name:' => 'Austria',
+                'Gender:' => 'Male',
+                'Phone Number:' => '(+63) 921-716-7659',
+                'Address:' => 'Poblacion, Guiguinto, Bulacan',
+                'Employee ID:' => '010525',
+                'Email:' => 'rodneycharlesaustria1124@gmail.com',
+                'Company:' => 'Odecci Solutions Inc.'
+            ] as $label => $value)
+            <tr>
+                <td class="text-gray-500 font-medium pr-4">{{ $label }}</td>
+                <td class="font-semibold {{ $label == 'Email' ? 'text-blue-600 underline cursor-pointer' : '' }}">{{ $value }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50 mb-2" aria-hidden="true"/>
+</div>
+
+<!-- Modal -->
+<div id="editModal" class="fixed inset-0 z-50 hidden bg-gray-900 bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-lg w-96 p-6">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Edit Employee Details</h2>
+        <form>
+            @foreach ([
+                'First Name' => 'Rodney Charles',
+                'Middle Name' => 'Oliva',
+                'Last Name' => 'Austria',
+                'Gender' => 'Male',
+                'Phone Number' => '(+63) 921-716-7659',
+                'Address' => 'Poblacion, Guiguinto, Bulacan',
+                'Employee ID' => '010525',
+                'Email' => 'rodneycharlesaustria1124@gmail.com',
+                'Company' => 'Odecci Solutions Inc.'
+            ] as $label => $value)
+            <div class="mb-2">
+                <label class="text-sm text-gray-700 font-medium">{{ $label }}</label>
+                <input type="text" class="w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ $value }}">
+            </div>
+            @endforeach
+            <div class="flex justify-end mt-4">
+                <button type="button" onclick="closeModal()" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg mr-2">Cancel</button>
+                <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function openModal() {
+    document.getElementById('editModal').classList.remove('hidden');
+}
+function closeModal() {
+    document.getElementById('editModal').classList.add('hidden');
+}
+</script>
+
+                    
                     {{-- End of the Employee Details --}}
 
                     <h2 class="text-xl font-bold text-gray-900 mb-2">Recent Activities</h2>
@@ -115,7 +194,7 @@
             style="background: linear-gradient(to right, rgb(32, 83, 117), rgb(16, 43, 60));">
             <input type="checkbox" class="w-4 h-4 border border-gray-400 rounded mr-3">
             <span class="flex-1 px-3">TASKS</span>
-            <span class="text-center" style="width: 80px;">STATUS</span>
+            <span class="text-center" style="width: 110px;">STATUS</span>
             <span class="text-left px-3" style="width: 110px;">DEADLINE</span>
         </div>
 
@@ -157,16 +236,80 @@
     <div class="flex justify-between p-3 w-full bg-gray-100 border-t">
         <div class="flex-1"></div> {{-- Spacer --}}
         <div class="flex gap-2">
-            {{-- Delete Button --}}
-            <button class="text-white px-4 py-1.5 rounded-md text-xs font-bold transition" 
-                    style="background-color: rgb(236, 28, 36);">
-                Delete
-            </button>
-            {{-- Add Button --}}
-            <button class="text-white px-4 py-1.5 rounded-md text-xs font-bold transition" 
-                    style="background-color: rgb(16, 43, 60);">
-                Add
-            </button>
+            <div x-data="{ showModal: false }">
+                {{-- Delete Button --}}
+                <button @click="showModal = true" class="text-white px-4 py-1.5 rounded-md text-xs font-bold transition" 
+                        style="background-color: rgb(236, 28, 36);">
+                    Delete
+                </button>
+            
+                {{-- Delete Confirmation Modal --}}
+                <div x-show="showModal" x-cloak 
+                    class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+                    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+                        <h2 class="text-lg font-bold mb-4">Confirm Deletion</h2>
+                        <p class="text-gray-700 mb-4">Are you sure you want to delete this item? This action cannot be undone.</p>
+                        <div class="flex justify-end space-x-2">
+                            <button @click="showModal = false" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md">Cancel</button>
+                            <button @click="deleteTask()" class="px-4 py-2 bg-red-600 text-white rounded-md">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {{-- Add this CSS to prevent flickering --}}
+            <style>
+                [x-cloak] { display: none !important; }
+            </style>
+            
+            <script>
+                function deleteTask() {
+                    alert('Task deleted successfully!'); // Replace this with an actual delete function
+                }
+            </script>
+            
+            <div x-data="{ open: false }">
+                {{-- Add Button --}}
+                <button @click="open = true" class="text-white px-4 py-1.5 rounded-md text-xs font-bold transition" 
+                        style="background-color: rgb(16, 43, 60);">
+                    Add
+                </button>
+            
+                    {{-- Modal --}}
+                    <div x-show="open" x-cloak class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+                        <div class="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+                            <h2 class="text-lg font-bold mb-4">Add New Task</h2>
+                    
+                
+                        <!-- Task Name -->
+                        <label class="block text-sm font-medium text-gray-700">Task Name</label>
+                        <input type="text" class="w-full px-3 py-2 border rounded-md mb-3">
+                
+                        <!-- Deadline -->
+                        <label class="block text-sm font-medium text-gray-700">Deadline</label>
+                        <input type="date" class="w-full px-3 py-2 border rounded-md mb-3 relative z-50">
+                
+                      <!-- Status Dropdown -->
+                        <label class="block text-sm font-medium text-gray-700">Status</label>
+                        <select class="w-full px-3 py-2 border rounded-md mb-3">
+                            <option value="very_high" class="text-red-600 font-bold">Very High</option>
+                            <option value="high" class="text-orange-500 font-bold">High</option>
+                            <option value="medium" class="text-purple-600 font-bold">Medium</option>
+                            <option value="normal" class="text-green-600 font-bold">Normal</option>
+                            <option value="low" class="text-blue-600 font-bold">Low</option>
+                        </select>
+
+                        <!-- Buttons -->
+                        <div class="flex justify-end gap-2">
+                            <button @click="open = false" class="px-4 py-2 bg-gray-400 text-white rounded-md">Cancel</button>
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded-md">Save</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
         </div>
     </div>
 

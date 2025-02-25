@@ -3,6 +3,12 @@
 @section('title', 'Dashboard')
 
 @section('content')
+<head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
 <div class="flex min-h-screen bg-gray-100">
     <!-- Sidebar -->
     <x-sidebar />
@@ -53,7 +59,7 @@
 </div>
 
 <!-- Chart.js Script -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 // Line Chart (Sales Overview)
