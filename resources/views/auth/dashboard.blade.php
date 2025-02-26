@@ -95,7 +95,7 @@ new Chart(customerCtx, {
         }]
     },
     options: { responsive: true, maintainAspectRatio: false }
-});
+}); 
 
 
 });
