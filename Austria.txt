@@ -70,5 +70,11 @@ February 17, 2025
  - Developed the modals for the Projects
  - Developed the modals for the Admin
 
+ • February 26, 2025
+ - Improved the repsonse time of the pages
+
+
+ • March 3, 2025
+ - Added the Authentication of the Log in page and added the Log-out function in the sidebar. 
 
 

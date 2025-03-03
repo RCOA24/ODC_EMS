@@ -11,6 +11,10 @@
 <body class="bg-gray-100">
 
     @yield('content')
-
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        {{-- <button type="submit" class="text-red-500 hover:text-red-700">Logout</button> --}}
+    </form>
+    
 </body>
 </html>

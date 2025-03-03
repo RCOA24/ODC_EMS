@@ -12,7 +12,6 @@
             'projects' => ['label' => 'Projects', 'icon' => 'icon-projects'],
         ];
     });
-
     $bottomItems = [
         'settings' => ['label' => 'Settings', 'icon' => 'icon-settings'],
         'admin' => ['label' => 'Admin', 'icon' => 'icon-admin'],
@@ -83,6 +82,19 @@
                     </a>
                 </li>
             @endforeach
+
+            <li class="border-t border-gray-600 my-1"></li>
+
+            <!-- Logout Button (Mobile) -->
+            <li>
+                <form action="{{ route('logout') }}" method="POST" class="w-full">
+                    @csrf
+                    <button type="submit" class="flex items-center gap-2 p-2 border-b border-gray-700 hover:bg-gray-700 text-sm w-full text-left">
+                        <x-dynamic-component :component="'icon-logout'" class="w-4 h-4" loading="lazy" />
+                        <span>Logout</span>
+                    </button>
+                </form>
+            </li>
         </ul>
     </div>
 
@@ -113,6 +125,19 @@
                         </a>
                     </li>
                 @endforeach
+
+                <li class="border-t border-gray-600 my-2"></li>
+
+                <!-- Logout Button (Sidebar) -->
+                <li>
+                    <form action="{{ route('logout') }}" method="POST" class="w-full">
+                        @csrf
+                        <button type="submit" class="flex items-center gap-2 p-2 rounded-lg transition-all duration-300 hover:bg-[#18475D] w-full text-left">
+                            <x-dynamic-component :component="'icon-logout'" class="w-5 h-5" loading="lazy" />
+                            <span>Logout</span>
+                        </button>
+                    </form>
+                </li>
             </ul>
         </nav>
     </aside>
