@@ -11,7 +11,11 @@ class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
-
+    public function employee()
+    {
+        return $this->hasOne(Employee::class, 'employee_id', 'employee_id');
+    }
+    
     /**
      * The attributes that are mass assignable.
      *

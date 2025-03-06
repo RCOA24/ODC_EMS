@@ -5,6 +5,21 @@
 @section('content')
 <body class="flex items-center justify-center bg-gray-100 h-screen">
     <div class="flex flex-col md:flex-row w-full h-full">
+
+
+                <!-- Toast for the user who is not existing-->
+       @if (session('error'))
+    <div id="toast" class="fixed top-5 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-8 py-4 text-lg w-[400px] text-center rounded-lg shadow-lg opacity-70">
+        {{ session('error') }}
+    </div>
+    <script>
+        setTimeout(() => {
+            document.getElementById('toast').style.display = 'none';
+        }, 3000); // Hide after 3 seconds
+    </script>
+@endif
+
+
         
         <!-- Left Section (Image & Branding) -->
         <div class="w-full md:w-1/2 flex flex-col items-center justify-center p-6 md:p-10 text-center text-gray-900"

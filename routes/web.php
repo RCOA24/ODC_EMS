@@ -20,11 +20,11 @@ Route::post('/logout', function () {
 
 // Protected Routes (Requires Authentication)
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('auth.dashboard');
-    })->name('dashboard'); // ✅ This must match!
-});
 
+    // ✅ Redirect users to employee page after login
+    Route::get('/dashboard', function () {
+        return redirect()->route('employee'); 
+    })->name('dashboard'); 
 
     Route::get('/employee', function () {
         return view('auth.employee');
@@ -49,10 +49,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin', function () {
         return view('auth.admin');
     })->name('admin');
+});
 
 // Include Laravel authentication routes
 Auth::routes();
 
-// Correct the incorrect "/dasboard" route
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+// Redirect home route to employee page
+Route::get('/home', function () {
+    return redirect()->route('employee');
+})->name('home');

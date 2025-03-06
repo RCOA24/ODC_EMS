@@ -5,7 +5,7 @@
 
     $menuItems = Cache::rememberForever('menu_items', function () {
         return [
-            'dashboard' => ['label' => 'Dashboard', 'icon' => 'icon-dashboard'],
+           
             'employee' => ['label' => 'Employee', 'icon' => 'icon-employee'],
             'messages' => ['label' => 'Messages', 'icon' => 'icon-messages'],
             'appointments' => ['label' => 'Appointments', 'icon' => 'icon-appointments'],
