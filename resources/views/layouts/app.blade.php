@@ -7,6 +7,7 @@
    
     <!-- Include Tailwind with Vite -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 <body class="bg-gray-100">
 
@@ -15,7 +16,8 @@
         @csrf
         {{-- <button type="submit" class="text-red-500 hover:text-red-700">Logout</button> --}}
     </form>
-   
+   <script src="//unpkg.com/alpinejs" defer></script>
+
     
 </body>
 </html>

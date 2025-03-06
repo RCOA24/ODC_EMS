@@ -8,26 +8,28 @@ use Illuminate\Support\Facades\Http;
 use App\Models\Employee;
 
 class EmployeeProfile extends Component
-{public $fname, $mname, $lname, $gender, $cno, $address, $employeeId, $email, $employee_id;
+{
+    public $fname;
+    public $mname;
+    public $lname; 
+    public $gender; 
+    public $cno; 
+    public $address; 
+    public $employeeId; 
+    public $email;
     
+    // protected $listeners = ['editEmployee' => 'loadEmployee'];
 
-    protected $listeners = ['editEmployee' => 'loadEmployee'];
 
-    public function mount($employee_id = null)
-    {
-        $this->employee_id = $employee_id ?? Auth::id();
-        $this->loadEmployee();
-    }
     public function loadEmployee()
     {
         try {
-            $this->employee_id = 3066; // Force a valid employee ID for testing
-    
-            $url = env('EMPLOYEE_API_URL') . $this->employee_id;
+            $this->employeeId = 3066; // Force a valid employee ID for testing
+            $url = env('EMPLOYEE_API_URL') . "/Employee/search/" . $this->employeeId;
+            // dd($this->employeeId);
             $token = env('EMPLOYEE_API_TOKEN');
-    
+            
             $response = Http::withToken($token)->get($url);
-    
             if ($response->successful()) {
                 $data = $response->json();
                 $this->fname = $data['fname'] ?? '';
@@ -36,18 +38,70 @@ class EmployeeProfile extends Component
                 $this->gender = $data['gender'] ?? '';
                 $this->cno = $data['cno'] ?? '';
                 $this->address = $data['address'] ?? '';
-                $this->employeeId = $data['employeeId'] ?? '';
+                $this->employeeId = $data['id'] ?? '';
+                // dd($this->employeeId);
+                // dd($data);
                 $this->email = $data['email'] ?? '';
-    
-                 // Tell Alpine.js to open the modal
-            $this->dispatch('edit-modal');
-        } else {
-            session()->flash('error', 'Failed to fetch employee data: ' . $response->status());
+
+                // Debugging logs
+                logger('Employee Data Loaded', $data);
+
+                // Dispatch event for Alpine.js
+                $this->dispatch('edit-modal');
+
+                session()->flash('info', 'Employee data loaded and edit-modal event dispatched');
+            } else {
+                session()->flash('error', 'Failed to fetch employee data: ' . $response->status());
+            }
+        } catch (\Exception $e) {
+            session()->flash('error', 'Exception: ' . $e->getMessage());
         }
-    } catch (\Exception $e) {
-        session()->flash('error', 'Exception: ' . $e->getMessage());
     }
-}
+
+    public function editEmployee($employeeId)
+    {
+        // dd($empId);
+        try {
+            $url = env('EMPLOYEE_API_URL') . "/Employee/search/" . $employeeId;
+            // dd($this->employeeId);
+            $token = env('EMPLOYEE_API_TOKEN');
+            
+            $response = Http::withToken($token)->get($url);
+            if ($response->successful()) {
+                $data = $response->json();
+                $this->fname = $data['fname'] ?? '';
+                $this->mname = $data['mname'] ?? '';
+                $this->lname = $data['lname'] ?? '';
+                $this->gender = $data['gender'] ?? '';
+                $this->cno = $data['cno'] ?? '';
+                $this->address = $data['address'] ?? '';
+                $this->employeeId = $data['id'] ?? '';
+                // dd($this->employeeId);
+                // dd($data);
+                $this->email = $data['email'] ?? '';
+
+                // Debugging logs
+                logger('Employee Data Loaded', $data);
+
+                // Dispatch event for Alpine.js
+                $this->dispatch('edit-modal');
+
+                session()->flash('info', 'Employee data loaded and edit-modal event dispatched');
+            } else {
+                session()->flash('error', 'Failed to fetch employee data: ' . $response->status());
+            }
+        } catch (\Exception $e) {
+            session()->flash('error', 'Exception: ' . $e->getMessage());
+        }
+    }
+
+    public function click(): void
+    {
+        dd("xx");
+    }
+
+
+    
     
     public function updateEmployee()
     {
@@ -85,9 +139,15 @@ class EmployeeProfile extends Component
             session()->flash('error', 'Failed to update employee data.');
         }
     }
+
+    public function mount($employeeId = null)
+    {
+        // $this->employeeId = $employeeId ?? Auth::id();
+        $this->loadEmployee();
+        // dd("xxx");
+    }
+
     
-
-
 
     public function render()
     {

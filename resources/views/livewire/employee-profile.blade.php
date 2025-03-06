@@ -1,9 +1,11 @@
-<head>
-    @livewireStyles
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="{{ asset('vendor/livewire/livewire.js') }}" defer></script>
+{{-- <head> --}}
+  
+   
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo"></script> --}}
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    {{-- <script src="{{ asset('vendor/livewire/livewire.js') }}" defer></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script> --}}
+    {{-- @livewireStyles
 
     <style>
         [x-cloak] { display: none !important; }
@@ -11,16 +13,16 @@
             background: linear-gradient(90deg, #205375 5.08%, #102B3C 92.06%);
         }
     </style>
-</head>
+</head> --}}
 
-
+{{-- 
 <script>
     window.addEventListener('refreshPage', () => {
         location.reload();
     });
-</script>
+</script> --}}
 
-<body>
+{{-- <body> --}}
 
     <div class="p-2 md:p-4 flex-1 overflow-hidden flex flex-col">
         <div class="flex flex-col md:flex-row gap-4">
@@ -78,24 +80,31 @@
     
            <!-- Employee Details -->
 <div class="flex items-center justify-between mt-4">
-    <h1 class="text-2xl font-bold text-gray-900">Employee Details</h1>
-
-    <!-- Alpine.js Edit Modal -->
-    <div x-data="{ showEditModal: false }">
-        <button 
+    <h1 class="text-2xl font-bold text-gray-900">{{ $employeeId }}</h1>
+    {{-- <button 
         @click="showEditModal = true"
-        wire:click="loadEmployee({{ $employee_id }})"
-        class="bg-[#102B3C] text-white px-2 py-1 rounded flex items-center text-xs font-semibold shadow-sm hover:bg-[#183d54] transition">
+        wire:click="click"
+        class="bg-[#102B3C] text-white px-2 py-1 rounded flex items-center text-xs font-semibold shadow-sm hover:bg-[#183d54] transition">check
         <span class="p-0.5">Edit Details</span>
         <x-icon-edit class="w-3 h-3"></x-icon-edit>
-    </button>
-        
-        <!-- Edit Modal -->
-        <div x-show="showEditModal" x-cloak class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-            <div @click.away="showEditModal = false" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-                <h2 class="text-xl font-semibold mb-4">Edit Employee Details</h2>
+    </button>    --}}
+<!-- Alpine.js Edit Modal -->
+<div>
+    <button 
+        {{-- @click="showEditModal = true" --}}
+        wire:click="editEmployee({{$employeeId}})"
+        class="bg-[#102B3C] text-white px-2 py-1 rounded flex items-center text-xs font-semibold shadow-sm hover:bg-[#183d54] transition">check
+        {{-- <span class="p-0.5">Edit Details</span>
+        <x-icon-edit class="w-3 h-3"></x-icon-edit> --}}
+    </button>   
+
     
-                <form wire:submit.prevent="loadEmployee">
+    <!-- Edit Modal -->
+    <div x-show="showEditModal" x-cloak class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div @click.away="showEditModal = false" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+            <h2 class="text-xl font-semibold mb-4">Edit Employee Details</h2>
+    
+                <form wire:submit.prevent="updateEmployee">
                     <div class="space-y-2">
                         <label class="block text-sm">First Name:</label>
                         <input type="text" wire:model.defer="fname" class="w-full border rounded px-2 py-1">
@@ -125,7 +134,7 @@
     
                     <div class="flex justify-end space-x-2 mt-4">
                         <button type="button" @click="showEditModal = false" class="bg-gray-500 text-white px-3 py-1 rounded">Cancel</button>
-                        <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded">Save</button>
+                        <button type="submit" class="bg-[#102B3C] text-white px-3 py-1 rounded hover:bg-[#183d54] transition">Save</button>
                     </div>
                 </form>
             </div>
@@ -133,7 +142,7 @@
     </div>
 </div>
 
-<script>
+{{-- <script>
     document.addEventListener('livewire:init', function () {
         // Close modal when update is successful
         Livewire.on('closeEditModal', () => {
@@ -145,7 +154,7 @@
             Livewire.dispatch('$refresh');
         });
     });
-</script>
+</script> --}}
 
 
 <hr class="shrink-0 mt-6 w-full h-px border border-solid border-black border-opacity-50" aria-hidden="true"/>
@@ -332,4 +341,4 @@
     </div>
 </div>
 @livewireScripts
-</body>
+{{-- </body> --}}
